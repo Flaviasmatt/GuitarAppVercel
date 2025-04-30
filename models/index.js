@@ -9,7 +9,7 @@ const connection = {
   username: process.env.ADMIN_USERNAME,
   password: process.env.ADMIN_PASSWORD,
   host: process.env.HOST,
-  port: process.env.PORT,
+  port: process.env.DB_PORT,
   dialect: process.env.DIALECT,
   dialectModule: require('mysql2'),
   dialectOptions: {
@@ -20,6 +20,7 @@ const connection = {
 };
 
 const sequelize = new Sequelize(connection);
+
 const db = {};
 db.sequelize = sequelize;
 
@@ -43,4 +44,5 @@ Object.keys(db).forEach(modelName => {
 });
 
 module.exports = db;
+
 
